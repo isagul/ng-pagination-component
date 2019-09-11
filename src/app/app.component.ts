@@ -13,20 +13,21 @@ export class AppComponent {
     'Wesley',
     'David',
     'Ashley',
-    'John',
-    'Jack',
-    'Mary',
-    'Wesley',
-    'David',
-    'Ashley',
-    'John',
-    'Jack',
-    'Mary',
-    'Wesley',
-    'David',
-    'Ashley',
+    'William',
+    'Oliver',
+    'James',
+    'Thomas',
+    'Martin',
+    'Lucas',
+    'Charlotte',
+    'Olivia',
+    'Emily',
+    'Grace',
+    'Mia',
+    'Amelia',
   ];
-  public currentPage: 1;
+  public currentPage =  1;
+  public itemsPerPage = 3;
 
   getNewCurrentPage(ev) {
     this.currentPage = ev;

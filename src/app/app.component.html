@@ -1,5 +1,12 @@
-<div *ngFor="let person of peopleList | paginate: {itemsPerPage:3, currentPage: currentPage}">
-  {{person}}
+<div class="names">
+  <div *ngFor="let person of peopleList | paginate: {itemsPerPage: itemsPerPage, currentPage: currentPage};">
+    <p>{{person}}</p>
+  </div>
 </div>
 
-<lib-ng-pagination-component [itemsPerPage]="3" [currentPage]="currentPage" [paginationList]="peopleList" (newCurrentPage)="getNewCurrentPage($event)"></lib-ng-pagination-component>
+
+<lib-ng-pagination-component [itemsPerPage]="itemsPerPage"
+                             [currentPage]="currentPage"
+                             [paginationList]="peopleList"
+                             (newCurrentPage)="getNewCurrentPage($event)">
+</lib-ng-pagination-component>

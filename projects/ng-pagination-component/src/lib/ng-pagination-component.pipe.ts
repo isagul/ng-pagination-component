@@ -5,7 +5,7 @@ import {Pipe, PipeTransform} from '@angular/core';
   pure: false
 })
 
-export class PaginationPipe implements PipeTransform{
+export class PaginationPipe implements PipeTransform {
   transform(value: any, arg1): any {
     const indexOfLastTodo = arg1.currentPage * arg1.itemsPerPage;
     const indexOfFirstTodo = indexOfLastTodo - arg1.itemsPerPage;
