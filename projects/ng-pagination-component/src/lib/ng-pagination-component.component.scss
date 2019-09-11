@@ -1,0 +1,53 @@
+@mixin general-features($bg-color
+) {
+  margin-right: 10px;
+  background: $bg-color;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 38px;
+  height: 40px;
+  width: 40px;
+}
+
+#page-numbers {
+  list-style-type: none;
+  display: flex;
+  padding-left: 0;
+  justify-content: center;
+  padding-bottom: 1rem;
+  user-select: none;
+  font-size: 17px;
+
+  .current-page {
+    @include general-features(#716aca);
+    color:white;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .not-current-pages {
+    @include general-features(#ebe9f2);
+    color: black;
+    transition: background-color 0.1s ease, opacity 0.1s ease;
+    &:hover {
+      cursor: pointer;
+      background-color: #716aca;
+      color:white;
+      opacity: 0.8;
+    }
+  }
+
+  .prev-next {
+    @include general-features(#ebe9f2);
+    color: black;
+    border:none;
+    transition: all 0.1s ease;
+    &:hover {
+      cursor: pointer;
+      background-color: #716aca;
+      opacity: 0.8;
+      color:white;
+    }
+  }
+}

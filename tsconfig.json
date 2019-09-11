@@ -18,6 +18,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ng-pagination-component": [
+        "dist/ng-pagination-component"
+      ],
+      "ng-pagination-component/*": [
+        "dist/ng-pagination-component/*"
+      ]
+    }
   }
 }

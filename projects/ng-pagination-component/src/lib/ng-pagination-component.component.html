@@ -1,0 +1,50 @@
+<ul id="page-numbers" *ngIf="paginationList.length > itemsPerPage">
+  <ng-template [ngIf]="pageNumbers.length > 6">
+    <li>
+      <button class="prev-next" (click)="goPrevPage()" [disabled]="getClickedNumber === 1">
+        <
+      </button>
+    </li>
+    <li *ngFor="let number of pageNumbers; let i = index" style="display: flex">
+      <p *ngIf="number === 1" [ngClass]="currentPage === number ? 'current-page' : 'not-current-pages'" (click)="getPageNumber(number)">{{number}}</p>
+      <ng-template [ngIf]="getClickedNumber < 5 && i === 0">
+        <p [ngClass]="currentPage === number + 1 ? 'current-page' : 'not-current-pages'" (click)="getPageNumber(number + 1)">{{number + 1}}</p>
+        <p [ngClass]="currentPage === number + 2 ? 'current-page' : 'not-current-pages'" (click)="getPageNumber(number + 2)">{{number + 2}}</p>
+        <p [ngClass]="currentPage === number + 3 ? 'current-page' : 'not-current-pages'" (click)="getPageNumber(number + 3)">{{number + 3}}</p>
+        <p [ngClass]="currentPage === number + 4 ? 'current-page' : 'not-current-pages'" (click)="getPageNumber(number + 4)">{{number + 4}}</p>
+        <p class="not-current-pages" (click)="getPageNumber(pageNumbers.length - 1)">. . .</p>
+      </ng-template>
+      <ng-template [ngIf]="getClickedNumber >= 5 && getClickedNumber <= pageNumbers.length - 3 && i === 0">
+        <p class="not-current-pages" (click)="getPageNumber(2)">. . .</p>
+        <p [ngClass]="currentPage === getClickedNumber - 1 ? 'current-page' : 'not-current-pages'" (click)="getPageNumber(getClickedNumber - 1)">{{getClickedNumber - 1}}</p>
+        <p [ngClass]="currentPage === getClickedNumber ? 'current-page' : 'not-current-pages'" (click)="getPageNumber(getClickedNumber)">{{getClickedNumber}}</p>
+        <p [ngClass]="currentPage === getClickedNumber + 1? 'current-page' : 'not-current-pages'" (click)="getPageNumber(getClickedNumber + 1)">{{getClickedNumber + 1}}</p>
+        <p class="not-current-pages" (click)="getPageNumber(pageNumbers.length - 1)">. . .</p>
+      </ng-template>
+      <ng-template [ngIf]="getClickedNumber >= 5 && getClickedNumber > pageNumbers.length - 3 && i === 0">
+        <p class="not-current-pages" (click)="getPageNumber(2)">. . .</p>
+        <p [ngClass]="currentPage === pageNumbers.length - 4 ? 'current-page' : 'not-current-pages'" (click)="getPageNumber(pageNumbers.length - 4)">{{pageNumbers.length - 4}}</p>
+        <p [ngClass]="currentPage === pageNumbers.length - 3 ? 'current-page' : 'not-current-pages'" (click)="getPageNumber(pageNumbers.length - 3)">{{pageNumbers.length - 3}}</p>
+        <p [ngClass]="currentPage === pageNumbers.length - 2 ? 'current-page' : 'not-current-pages'" (click)="getPageNumber(pageNumbers.length - 2)">{{pageNumbers.length - 2}}</p>
+        <p [ngClass]="currentPage === pageNumbers.length - 1 ? 'current-page' : 'not-current-pages'" (click)="getPageNumber(pageNumbers.length - 1)">{{pageNumbers.length - 1}}</p>
+      </ng-template>
+      <p *ngIf="number === pageNumbers.length" [ngClass]="currentPage === number ? 'current-page' : 'not-current-pages'" (click)="getPageNumber(number)">{{number}}</p>
+    </li>
+    <li>
+      <button class="prev-next" (click)="goNextPage()" [disabled]="getClickedNumber === pageNumbers.length"> > </button>
+    </li>
+  </ng-template>
+  <ng-template [ngIf]="pageNumbers.length <= 6">
+    <li>
+      <button class="prev-next" (click)="goPrevPage()" [disabled]="getClickedNumber === 1">
+        <
+      </button>
+    </li>
+    <li *ngFor="let number of pageNumbers; let i = index" style="display: flex">
+      <p [ngClass]="currentPage === number ? 'current-page' : 'not-current-pages'" (click)="getPageNumber(number)">{{number}}</p>
+    </li>
+    <li>
+      <button class="prev-next" (click)="goNextPage()" [disabled]="getClickedNumber === pageNumbers.length"> > </button>
+    </li>
+  </ng-template>
+</ul>

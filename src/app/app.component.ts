@@ -6,5 +6,29 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-component-library';
+  public peopleList = [
+    'John',
+    'Jack',
+    'Mary',
+    'Wesley',
+    'David',
+    'Ashley',
+    'John',
+    'Jack',
+    'Mary',
+    'Wesley',
+    'David',
+    'Ashley',
+    'John',
+    'Jack',
+    'Mary',
+    'Wesley',
+    'David',
+    'Ashley',
+  ];
+  public currentPage: 1;
+
+  getNewCurrentPage(ev) {
+    this.currentPage = ev;
+  }
 }

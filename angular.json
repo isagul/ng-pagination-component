@@ -119,6 +119,41 @@
           }
         }
       }
+    },
+    "ng-pagination-component": {
+      "projectType": "library",
+      "root": "projects/ng-pagination-component",
+      "sourceRoot": "projects/ng-pagination-component/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ng-pagination-component/tsconfig.lib.json",
+            "project": "projects/ng-pagination-component/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-pagination-component/src/test.ts",
+            "tsConfig": "projects/ng-pagination-component/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-pagination-component/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-pagination-component/tsconfig.lib.json",
+              "projects/ng-pagination-component/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "angular-component-library"
 }
