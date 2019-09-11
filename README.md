@@ -13,18 +13,51 @@ Click the link and play with pagination component.
 ```  
   npm install --save ng-pagination-component  
 ```  
-#### Import NgPaginationComponentModule and FormsModule modules:  
+#### Simple Example  
 ```javascript  
-  import { NgPaginationComponentModule} from '@ng-pagination-component';  
+  //app.module.ts
+  import { BrowserModule } from '@angular/platform-browser';
+  import { NgModule } from '@angular/core';
+  import { AppComponent } from './app.component';
+  import { NgPaginationComponentModule} from 'ng-pagination-component';  
   import { FormsModule } from '@angular/forms';  
     
   @NgModule({  
     declarations: [AppComponent],  
-    imports: [NgPaginationComponentModule, FormsModule],  
+    imports: [BrowserModule, NgPaginationComponentModule, FormsModule],  
     bootstrap: [AppComponent]  
   })  
   export class AppModule {}  
 ```  
+```javascript
+//app.component.ts
+import { Component } from '@angular/core';
+@Component({
+    selector: 'app-root',
+    template: `
+	<ul>
+		<li *ngFor="let item of items | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+			{{item}}	
+		</li>
+	 </ul>
+  
+	 <ng-pagination-component [itemsPerPage]="itemsPerPage"  
+							  [currentPage]="currentPage"  
+							  [paginationList]="items "  
+							  (newCurrentPage)="getNewCurrentPage($event)">
+	 </ng-pagination-component>
+	 `
+})
+export class AppComponent{
+    itemsPerPage: 5;
+    currentPage: 1;
+    items = []; 
+
+	getNewCurrentPage(e) {  
+	  this.currentPage = e;  
+	}
+}
+```
   
 # API  
 ### Inputs  
