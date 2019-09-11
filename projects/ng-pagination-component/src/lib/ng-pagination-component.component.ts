@@ -31,6 +31,7 @@ export class NgPaginationComponentComponent implements OnInit, OnChanges, OnDest
       }
     }
     this.pageNumbersLength.emit(this.pageNumbers.length);
+    this.getClickedNumber = this.currentPage;
   }
 
   getPageNumber(number) {
