@@ -7,9 +7,10 @@ import {Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output} fr
 })
 export class NgPaginationComponentComponent implements OnInit, OnChanges, OnDestroy {
   @Input() paginationList = [];
-  @Input() itemsPerPage: number;
-  @Input() currentPage: number;
+  @Input() itemsPerPage = 1;
+  @Input() currentPage = 1;
   @Output() newCurrentPage = new EventEmitter<any>();
+  @Output() pageNumbersLength = new EventEmitter<any>();
   public pageNumbers = [];
   public getClickedNumber: number;
   constructor() {
@@ -24,11 +25,12 @@ export class NgPaginationComponentComponent implements OnInit, OnChanges, OnDest
 
   ngOnChanges() {
     this.pageNumbers = [];
-    if (this.paginationList.length > 0) {
+    if (this.paginationList.length > 0 && this.itemsPerPage !== null && this.itemsPerPage > 0) {
       for (let i = 1; i <= Math.ceil(this.paginationList.length / this.itemsPerPage); i++) {
         this.pageNumbers.push(i);
       }
     }
+    this.pageNumbersLength.emit(this.pageNumbers.length);
   }
 
   getPageNumber(number) {

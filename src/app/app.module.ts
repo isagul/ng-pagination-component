@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {NgPaginationComponentModule} from '../../projects/ng-pagination-component/src/lib/ng-pagination-component.module';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import {NgPaginationComponentModule} from '../../projects/ng-pagination-componen
   ],
   imports: [
     BrowserModule,
-    NgPaginationComponentModule
+    NgPaginationComponentModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

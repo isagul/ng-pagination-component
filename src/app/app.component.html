@@ -1,12 +1,30 @@
-<div class="names">
-  <div *ngFor="let person of peopleList | paginate: {itemsPerPage: itemsPerPage, currentPage: currentPage};">
-    <p>{{person}}</p>
+<div class="app">
+  <h2 class="title">NG PAGINATION COMPONENT</h2>
+  <div class="names">
+    <div *ngFor="let person of peopleList | paginate: {itemsPerPage: itemsPerPage, currentPage: currentPage};">
+      <p>{{person.id}} - {{person.name}}</p>
+    </div>
+  </div>
+
+
+  <lib-ng-pagination-component [itemsPerPage]="itemsPerPage"
+                               [currentPage]="currentPage"
+                               [paginationList]="peopleList"
+                               (newCurrentPage)="getNewCurrentPage($event)"
+                               (pageNumbersLength)="getPageNumbersLength($event)"
+  >
+  </lib-ng-pagination-component>
+
+  <div class="edit-features">
+    <h3>Edit Features</h3>
+    <div class="edit-area">
+      <label>Change Items Per Page: </label>
+      <input type="number" placeholder="Items Per Page" [(ngModel)]="itemsPerPage" min="1" [max]="peopleList.length">
+      <label>Change Current Page: </label>
+      <input type="number" placeholder="Current Page" [(ngModel)]="currentPage" min="1" [max]="paginationLength">
+    </div>
   </div>
 </div>
 
 
-<lib-ng-pagination-component [itemsPerPage]="itemsPerPage"
-                             [currentPage]="currentPage"
-                             [paginationList]="peopleList"
-                             (newCurrentPage)="getNewCurrentPage($event)">
-</lib-ng-pagination-component>
+

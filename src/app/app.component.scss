@@ -1,7 +1,40 @@
-.names {
-  display: flex;
-  flex-direction: row;
-  p {
-    margin-right: 10px;
+.app {
+  .title {
+    text-align: center;
+    color: #716aca;
   }
+  font-family: 'Nunito', sans-serif;
+
+  .names {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    p {
+      border: 1px solid black;
+      padding: 8px;
+      border-radius: 3px;
+      margin-right: 10px;
+    }
+  }
+
+  .edit-features {
+    display: grid;
+    justify-items: center;
+    .edit-area {
+      display: grid;
+      grid-template-columns: 175px 100px;
+      grid-row-gap: 1rem;
+      grid-column-gap: 1rem;
+      label {
+        align-self: center;
+      }
+      input {
+        padding: 8px 0 8px 8px;
+        border-radius: 3px;
+        border: 1px solid lightgray;
+      }
+    }
+  }
+
+
 }
+
