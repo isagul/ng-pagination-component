@@ -1,27 +1,40 @@
-# AngularComponentLibrary
+# Angular Pagination
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
+[Live Demo](https://isagul.github.io/ng-pagination-component/)
+Click the link and play with pagination component.
 
-## Development server
+## Features  
+- [x] Specify items count per page
+- [x] Specify current page
+- [x] Handle every click on buttons on pagination
+  
+## Installation  
+#### Install ng-pagination-component
+```  
+  npm install --save ng-pagination-component  
+```  
+#### Import NgPaginationComponentModule and FormsModule modules:  
+```javascript  
+  import { NgPaginationComponentModule} from '@ng-pagination-component';  
+  import { FormsModule } from '@angular/forms';  
+    
+  @NgModule({  
+    declarations: [AppComponent],  
+    imports: [NgPaginationComponentModule, FormsModule],  
+    bootstrap: [AppComponent]  
+  })  
+  export class AppModule {}  
+```  
+  
+# API  
+### Inputs  
+| Input  | Type | Default | Description  
+| ------------- | ------------- | ------------- | -------------  
+| paginationList| Array<any>  | [ ]  | Items array. 
+| itemsPerPage| Number| 1 | Allows to specify items count per page. 
+| currentPage| Number | 1  | Allows to specify current page.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### Outputs  
+| Output  | Description  
+| ------------- | -------------  
+| newCurrentPage| It works when clicked on any button on pagination. It returns current page number as number.

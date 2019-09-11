@@ -1,6 +1,22 @@
 {
-  "name": "angular-component-library",
-  "version": "0.0.0",
+  "name": "ng-pagination-component",
+  "version": "1.0.0",
+  "description": "The lightest and simplest solution for pagination in Angular.",
+  "author": "Isa Gul",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/isagul/ng-pagination-component.git"
+  },
+  "bugs": {
+    "url": "https://github.com/isagul/ng-pagination-component/issues"
+  },
+  "homepage": "https://github.com/isagul/ng-pagination-component",
+  "keywords": [
+    "angular",
+    "pagination",
+    "component",
+    "angular2"
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,6 +25,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "license": "MIT",
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.0.1",
