@@ -36,15 +36,16 @@ import { Component } from '@angular/core';
     selector: 'app-root',
     template: `
 	<ul>
-		<li *ngFor="let item of items | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
-			{{item}}	
-		</li>
+            <li *ngFor="let item of items | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+                {{item}}	
+            </li>
 	 </ul>
   
-	 <ng-pagination-component [itemsPerPage]="itemsPerPage"  
-							  [currentPage]="currentPage"  
-							  [paginationList]="items "  
-							  (newCurrentPage)="getNewCurrentPage($event)">
+	 <ng-pagination-component 
+            [itemsPerPage]="itemsPerPage"  
+            [currentPage]="currentPage"  
+            [paginationList]="items "  
+            (newCurrentPage)="getNewCurrentPage($event)">
 	 </ng-pagination-component>
 	 `
 })
