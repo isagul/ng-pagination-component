@@ -41,12 +41,12 @@ import { Component } from '@angular/core';
             </li>
 	 </ul>
   
-	 <ng-pagination-component 
+	 <lib-ng-pagination-component 
             [itemsPerPage]="itemsPerPage"  
             [currentPage]="currentPage"  
             [paginationList]="items "  
             (newCurrentPage)="getNewCurrentPage($event)">
-	 </ng-pagination-component>
+	 </lib-ng-pagination-component>
 	 `
 })
 export class AppComponent{
