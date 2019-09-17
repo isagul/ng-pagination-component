@@ -9,10 +9,12 @@ export class NgPaginationComponentComponent implements OnInit, OnChanges, OnDest
   @Input() paginationList = [];
   @Input() itemsPerPage = 1;
   @Input() currentPage = 1;
+  @Input() countInfo = false;
   @Output() newCurrentPage = new EventEmitter<any>();
   @Output() pageNumbersLength = new EventEmitter<any>();
   public pageNumbers = [];
   public getClickedNumber: number;
+  public slicedPageNumbers = [];
   constructor() {
 
   }
@@ -34,19 +36,28 @@ export class NgPaginationComponentComponent implements OnInit, OnChanges, OnDest
     this.getClickedNumber = this.currentPage;
   }
 
-  getPageNumber(number) {
-    this.newCurrentPage.emit(number);
-    this.getClickedNumber = number;
+  getPageNumber(pageNumber) {
+    this.newCurrentPage.emit(pageNumber);
+    this.getClickedNumber = pageNumber;
+    this.countShowingItems(pageNumber);
   }
 
   goPrevPage() {
     this.newCurrentPage.emit(this.getClickedNumber - 1);
+    this.countShowingItems(this.getClickedNumber - 1);
     this.getClickedNumber--;
   }
 
   goNextPage() {
     this.newCurrentPage.emit(this.getClickedNumber + 1);
+    this.countShowingItems(this.getClickedNumber + 1);
     this.getClickedNumber++;
+  }
+
+  countShowingItems(pageNumber) {
+    const indexOfLastTodo = pageNumber * this.itemsPerPage;
+    const indexOfFirstTodo = indexOfLastTodo - this.itemsPerPage;
+    this.slicedPageNumbers = [...this.paginationList.slice(indexOfFirstTodo, indexOfLastTodo)];
   }
 
   ngOnDestroy(): void {

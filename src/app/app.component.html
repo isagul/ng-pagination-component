@@ -10,6 +10,7 @@
   <lib-ng-pagination-component [itemsPerPage]="itemsPerPage"
                                [currentPage]="currentPage"
                                [paginationList]="peopleList"
+                               [countInfo]="true"
                                (newCurrentPage)="getNewCurrentPage($event)"
                                (pageNumbersLength)="getPageNumbersLength($event)"
   >

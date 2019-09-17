@@ -1,3 +1,21 @@
+<div *ngIf="countInfo === true" class="count-info">
+    <ng-template [ngIf]="currentPage === 1 && paginationList.length >= itemsPerPage">
+        <p>Showing {{currentPage}} to {{itemsPerPage}}
+            of {{paginationList.length}} items</p>
+    </ng-template>
+    <ng-template [ngIf]="currentPage === 1 && paginationList.length < itemsPerPage">
+        <p>Showing {{currentPage}} to {{paginationList.length}}
+            of {{paginationList.length}} items</p>
+    </ng-template>
+    <ng-template [ngIf]="currentPage !== 1 && currentPage * itemsPerPage <= paginationList.length">
+        <p>Showing {{(itemsPerPage * currentPage) - (itemsPerPage - 1)}} to
+            {{currentPage * itemsPerPage}} of {{paginationList.length}} items</p>
+    </ng-template>
+    <ng-template [ngIf]="currentPage !== 1 && currentPage * itemsPerPage > paginationList.length">
+        <p>Showing {{(paginationList.length - slicedPageNumbers.length) + 1}} to
+            {{paginationList.length}} of {{paginationList.length}} items</p>
+  </ng-template>
+</div>
 <ul id="page-numbers" *ngIf="paginationList.length > itemsPerPage">
   <ng-template [ngIf]="pageNumbers.length > 6">
     <li>
