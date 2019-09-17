@@ -10,7 +10,7 @@
   <lib-ng-pagination-component [itemsPerPage]="itemsPerPage"
                                [currentPage]="currentPage"
                                [paginationList]="peopleList"
-                               [countInfo]="true"
+                               [countInfo]="countInfo"
                                (newCurrentPage)="getNewCurrentPage($event)"
                                (pageNumbersLength)="getPageNumbersLength($event)"
   >
@@ -23,6 +23,11 @@
       <input type="number" placeholder="Items Per Page" [(ngModel)]="itemsPerPage" min="1" [max]="peopleList.length">
       <label>Change Current Page: </label>
       <input type="number" placeholder="Current Page" [(ngModel)]="currentPage" min="1" [max]="paginationLength">
+      <label>Show Count Info: </label>
+      <select (change)="getCountInfoValue()" id="selectCount">
+        <option value="true">True</option>
+        <option value="false">False</option>
+      </select>
     </div>
   </div>
 </div>

@@ -29,6 +29,7 @@ export class AppComponent {
   public currentPage = 1;
   public itemsPerPage = 3;
   public paginationLength: number;
+  public countInfo = true;
 
   getNewCurrentPage(ev) {
     this.currentPage = ev;
@@ -36,5 +37,10 @@ export class AppComponent {
 
   getPageNumbersLength(ev) {
     this.paginationLength = ev;
+  }
+
+  getCountInfoValue() {
+    const element = document.getElementById('selectCount') as HTMLInputElement;
+    this.countInfo = element.value === 'true';
   }
 }
