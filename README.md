@@ -7,6 +7,7 @@ Click the link and play with pagination component.
 - [x] Specify items count per page
 - [x] Specify current page
 - [x] Handle every click on buttons on pagination
+- [x] Show count of items per page.
   
 ## Installation  
 #### Install ng-pagination-component
@@ -44,7 +45,8 @@ import { Component } from '@angular/core';
 	 <lib-ng-pagination-component 
             [itemsPerPage]="itemsPerPage"  
             [currentPage]="currentPage"  
-            [paginationList]="items "  
+            [paginationList]="items"
+            [countInfo]="true"  
             (newCurrentPage)="getNewCurrentPage($event)">
 	 </lib-ng-pagination-component>
 	 `
@@ -67,6 +69,7 @@ export class AppComponent{
 | paginationList| Array<any>  | [ ]  | Items array. 
 | itemsPerPage| Number| 1 | Allows to specify items count per page. 
 | currentPage| Number | 1  | Allows to specify current page.
+| countInfo| Boolean | true  | Allows to showing count of items per page.
 
 ### Outputs  
 | Output  | Description  
