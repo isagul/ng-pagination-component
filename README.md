@@ -69,7 +69,7 @@ export class AppComponent{
 | paginationList| Array<any>  | [ ]  | Items array. 
 | itemsPerPage| Number| 1 | Allows to specify items count per page. 
 | currentPage| Number | 1  | Allows to specify current page.
-| countInfo| Boolean | true  | Allows to showing count of items per page.
+| countInfo| Boolean | false  | Allows to showing count of items per page.
 
 ### Outputs  
 | Output  | Description  
