@@ -1,4 +1,4 @@
-# Angular Pagination
+# Angular Pagination [![npm version](https://badge.fury.io/js/ng-pagination-component.svg)](https://badge.fury.io/js/ng-pagination-component)
 
 [Live Demo](https://isagul.github.io/ng-pagination-component/)
 Click the link and play with pagination component.
